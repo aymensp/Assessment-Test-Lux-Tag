@@ -1,70 +1,69 @@
 import './App.css';
-import {useState , Component} from 'react'
-import { render } from "react-dom";
+import { useState ,useEffect } from 'react'
 import { EditorState } from "draft-js";
+import { useDispatch } from 'react-redux';
 import { Editor } from "react-draft-wysiwyg";
+import { useSelector } from 'react-redux';
 import {
-  DraftailEditor,
-  createEditorStateFromRaw,
   serialiseEditorStateToRaw
 } from "draftail";
-class EditorContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      editorState: EditorState.createEmpty()
-    };
-  }
+import { selectEditor, setEditor } from './features/appSlice';
+function EditorContainer() {
 
-  onEditorStateChange = (editorState) => {
-    // console.log(editorState)
-    this.setState({
-      editorState
-    });
-  };
-
-  render() {
-    const { editorState } = this.state;
-    console.log(editorState.getBlockTree());
-    return (
-      <div className="editor">
-        <Editor
-          editorState={editorState}
-          onEditorStateChange={this.onEditorStateChange}
-          
-        />
-         {JSON.stringify(serialiseEditorStateToRaw(editorState))}
-
-      </div>
-    );
-  }
+  const dispatch = useDispatch();
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  useEffect(() => {
+    dispatch(setEditor({
+      editor: serialiseEditorStateToRaw(editorState)
+    }))
+  }, [editorState])
+  return (
+    <div >
+      <Editor
+        editorState={editorState}
+        onEditorStateChange={(editorState) => {
+          setEditorState(editorState);
+        }}
+        toolbar={{
+          inline: { inDropdown: true },
+          list: { inDropdown: true },
+          textAlign: { inDropdown: true },
+          link: { inDropdown: true },
+          history: { inDropdown: true },
+        }}
+      />
+    </div>
+  );
 }
+
 
 
 function App() {
 
-  const [text,setText]=useState("");
-  console.log(text)
+  const editor = useSelector(selectEditor);
+  console.log(editor?.blocks[0])
+
   return (
-<div >
-<EditorContainer/>
-
-<div className='input'>
-<input onChange={(event)=>setText(event.target.value)} value={text} type="text"></input>
-</div>
-<div className='right'>
-
-<div class="iphone">
-<div className="i">
-</div>
-<div className="b">
-</div>
-<div className='text'>
-{text}
-</div>
-</div>
-</div>
-</div>
+    <div className='App'>
+      <div className='input'>
+        {/* <input onChange={(event) => setText(event.target.value)} value={text} type="text"></input> */}
+        <EditorContainer />
+      </div>
+        <div className="iphone">
+          <div className="microphone">
+          </div>
+          <div className="cam">
+          </div>
+          <div className='textt'>
+          {editor?.blocks.map((block) => {
+             
+             return (<div key={block?.key}> 
+                     <span > {block?.text} </span>
+                    </div>)
+         })}
+          </div>
+        </div>  
+    </div>
   );
 }
 

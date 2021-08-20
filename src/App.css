@@ -1,15 +1,8 @@
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App {
+display: flex;
+align-items: center;
 }
-
 
 @media screen {
   
@@ -23,25 +16,39 @@
     transform: rotate(360deg);
   }
 }
-
-.text{
+.input {
+  width: 545px;
+  height: 172px ;
+  overflow-y: scroll;
+  max-height: 172px;
+  top: 300px;
+  position: absolute;
+  left: 216px;
+  border: 2px gray solid;
+  padding: 5px;
+}
+.textt{
   background-color: white;
   color: black !important;
-  text-align: center;
+  text-align: justify;
   text-decoration: none;
-  width: 290px;
+  width: 264px;
   height: 460px;
+  max-height: 460px;
   font-size: 19px;
   font-weight: 100;
-  top: 78px;
-  left: 7px;
+  max-width: 264px;
+  top: 69px;
+  left: 8px;
   border-radius: 27px;
-  position: absolute;
+  position: relative;
   display: block;
-  z-index: 50;
+  padding: 12px;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
-.i {
+.microphone {
   position: absolute;
   display: block;
   color: transparent;
@@ -57,11 +64,11 @@
 
 .iphone {
   top: 100px ;
-  position: relative;
+  position: absolute;
   width: 304px;
-  left: 895px;
   height: 633px;
   background-color: #D6ECF8;
+  left: 881px;
   border-radius: 40px;
   box-shadow: 0px 0px 0px 13px white, 0px 0px 0px 19px rgb(184, 181, 181);
 }
@@ -88,7 +95,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.b {
+.cam {
   left: 3%;
   top: 0px;
   transform: translate(180px, 4px);
@@ -103,7 +110,7 @@
 
 }
   
-.b::after {
+.cam::after {
   content: '';
   position: absolute;
   background-color: white;
