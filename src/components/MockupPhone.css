@@ -1,0 +1,138 @@
+@media (max-width: 768px) {
+    .display-text-phone {
+        width: 312px !important;
+        height: 512px !important;
+        max-height: 512px !important;
+        max-width: 312px !important;
+        left: 20px !important;
+        top: 69px !important;
+    }
+    .iphone {
+        display: block;
+        left: 200px !important;
+        position: initial;
+        top: 0 !important;
+        width: 375px !important;
+        height: 812px !important;
+        box-shadow: none !important;
+        border-radius: none !important;
+    }
+    .microphone {
+        display: none !important;
+    }
+    .cam {
+        display: none !important;
+    }
+}
+
+.display-text-phone {
+    background-color: white;
+    width: 240px;
+    height: 436px;
+    max-height: 436px;
+    max-width: 240px;
+    top: 60px;
+    left: 10px;
+    border-radius: 27px;
+    position: relative;
+    display: block;
+    padding: 12px;
+    overflow-y: scroll;
+}
+
+.microphone {
+    position: absolute;
+    display: block;
+    color: transparent;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%, 6px);
+    height: 5px;
+    width: 15%;
+    background-color: rgb(226, 224, 224);
+    border-radius: 8px;
+    box-shadow: inset 0px -3px 3px 0px rgba(256, 256, 256, 0.2);
+}
+
+.iphone {
+    top: 150px;
+    position: absolute;
+    width: 286px;
+    height: 595px;
+    background-color: #D6ECF8;
+    left: 901px;
+    border-radius: 38px;
+    box-shadow: 0px 0px 0px 13px white, 0px 0px 0px 19px rgb(226, 224, 224);
+}
+
+@media (min-width: 768px) {
+    .iphone::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 7px;
+        width: 140px;
+        height: 4px;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .iphone::before {
+        top: 0px;
+        width: 56%;
+        height: 22px;
+        background-color: white;
+        border-radius: 0px 0px 40px 40px;
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.cam {
+    left: 0%;
+    top: -5px;
+    transform: translate(180px, 4px);
+    width: 11px;
+    height: 11px;
+    background-color: rgb(226, 224, 224);
+    border-radius: 10px;
+    position: absolute;
+    display: block;
+    color: transparent;
+}
+
+.title {
+    position: relative;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.cam::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    width: 7px;
+    height: 7px;
+    top: 2px;
+    left: 2px;
+    display: block;
+    border-radius: 4px;
+}
+
+.span {
+    bottom: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    left: 30px;
+    position: absolute;
+    display: block;
+    color: transparent;
+}

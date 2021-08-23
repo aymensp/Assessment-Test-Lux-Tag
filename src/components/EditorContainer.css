@@ -1,0 +1,21 @@
+.public-DraftStyleDefault-block {
+    margin: 0;
+}
+
+.input {
+    width: 545px;
+    height: 172px;
+    overflow-y: scroll;
+    max-height: 172px;
+    top: 370px;
+    position: absolute;
+    left: 216px;
+    border: 1px gray solid;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .input {
+        display: none;
+    }
+}
